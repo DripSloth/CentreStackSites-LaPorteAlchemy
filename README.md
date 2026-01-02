@@ -1,43 +1,92 @@
-# Astro Starter Kit: Minimal
 
-```sh
-npm create astro@latest -- --template minimal
+# CentreStack – La Porte Alchemy Website
+
+This project is a static website built with **Astro**, designed for fast load times and strong SEO.  
+It is deployed on **Cloudflare Pages** and follows a simple local-first development workflow.
+
+---
+
+## Tech Stack
+- Astro (static site generation)
+- Node.js (LTS)
+- npm
+- Cloudflare Pages (hosting)
+
+---
+
+## Local Development
+
+Install dependencies:
+```bash
+npm install
+````
+
+Start the local development server:
+
+```bash
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The site will be available at:
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```
+http://localhost:4321
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+---
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Build
 
-Any static assets, like images, can be placed in the `public/` directory.
+To generate the production build:
 
-## 🧞 Commands
+```bash
+npm run build
+```
 
-All commands are run from the root of the project, from a terminal:
+The static output is generated in the `dist/` directory.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+---
 
-## 👀 Want to learn more?
+## Deployment
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+**Deployment target:** Cloudflare Pages
+
+* The site is deployed automatically via Git integration.
+* Any push to the `main` branch triggers a new build and deploy.
+* Build command:
+
+  ```bash
+  npm run build
+  ```
+* Build output directory:
+
+  ```
+  dist
+  ```
+
+Cloudflare handles:
+
+* Global CDN
+* HTTPS / TLS
+* DNS (when the domain is on Cloudflare)
+
+---
+
+## Environment Variables
+
+If required, environment variables should be defined in:
+
+```
+.env
+```
+
+Do **not** commit `.env` files.
+Use `.env.example` to document required variables.
+
+---
+
+## Notes
+
+* This is a **static Astro build** (no SSR).
+* JavaScript is shipped only where explicitly enabled.
+* Optimised for SEO, performance, and long-term maintainability.
