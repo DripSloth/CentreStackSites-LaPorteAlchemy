@@ -1,0 +1,178 @@
+---
+const projects = [
+  {
+    id: 1,
+    imageUrl: 'https://picsum.photos/seed/modernpool/1200/900',
+    title: 'Serene Courtyard',
+    category: 'Design & Build',
+    span: 'col-span-2 row-span-2',
+    description:
+      'A complete transformation of a neglected backyard into a serene and functional courtyard. Features a custom-built pergola, stone patio, and a water feature that provides a tranquil ambiance.',
+  },
+  {
+    id: 2,
+    imageUrl: 'https://picsum.photos/seed/stonepath/900/1200',
+    title: 'Hillside Retreat',
+    category: 'Construction',
+    span: 'col-span-1 row-span-2',
+    description:
+      'This project involved complex terracing and stonework to create a multi-level garden on a steep hillside. The result is a stunning retreat with breathtaking views and intimate seating areas.',
+  },
+  {
+    id: 3,
+    imageUrl: 'https://picsum.photos/seed/greenlawn/800/600',
+    title: 'Coastal Garden',
+    category: 'Horticulture',
+    span: 'col-span-1 row-span-1',
+    description:
+      'A selection of salt-tolerant and native plants were used to create a vibrant, low-maintenance coastal garden that thrives in its environment and attracts local wildlife.',
+  },
+  {
+    id: 4,
+    imageUrl: 'https://picsum.photos/seed/firepit/1200/600',
+    title: "Entertainer's Deck",
+    category: 'Design & Build',
+    span: 'col-span-2 row-span-1',
+    description:
+      'A spacious Ipe wood deck complete with an outdoor kitchen, built-in seating, and a modern fire pit, designed for seamless indoor-outdoor entertaining.',
+  },
+  {
+    id: 5,
+    imageUrl: 'https://picsum.photos/seed/poolside/800/600',
+    title: 'Luxe Poolside',
+    category: 'Design & Build',
+    span: 'col-span-1 row-span-1',
+    description:
+      'An elegant poolside lounge area featuring travertine paving, lush tropical plantings, and custom lighting to create a resort-like atmosphere day and night.',
+  },
+];
+---
+<section id="our-work" class="py-20 md:py-32 bg-gray-900">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold font-serif text-white">Our Work</h2>
+      <p class="text-lg text-gray-400 max-w-2xl mx-auto mt-4">
+        A gallery of our recently completed projects, showcasing our passion for detail and quality.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 grid-rows-3 gap-4 h-[90vh]">
+      {projects.map((project) => (
+        <button
+          type="button"
+          class={`relative rounded-lg overflow-hidden group ${project.span} cursor-pointer text-left`}
+          data-project={JSON.stringify(project)}
+        >
+          <img
+            src={project.imageUrl}
+            alt={project.title}
+            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+          />
+          <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-opacity duration-300 flex items-end p-6">
+            <div class="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 text-white">
+              <h3 class="text-xl font-bold">{project.title}</h3>
+              <p class="text-sm text-gray-300">{project.category}</p>
+            </div>
+          </div>
+        </button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<div
+  id="portfolio-modal"
+  class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 pointer-events-none"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="project-title"
+>
+  <div
+    id="portfolio-modal-card"
+    class="relative bg-gray-900 rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto flex flex-col md:flex-row transition-all duration-300 scale-95 opacity-0"
+  >
+    <button
+      type="button"
+      data-modal-close
+      class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors z-10"
+      aria-label="Close project details"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <div class="md:w-3/5 flex-shrink-0 bg-gray-800">
+      <img
+        data-modal-image
+        src=""
+        alt=""
+        class="w-full h-full object-cover rounded-t-lg md:rounded-l-lg md:rounded-t-none"
+      />
+    </div>
+    <div class="p-8 flex flex-col justify-center">
+      <h2 id="project-title" data-modal-title class="text-3xl font-bold font-serif text-white mb-2"></h2>
+      <p data-modal-category class="text-green-500 font-semibold mb-4"></p>
+      <p data-modal-description class="text-gray-400"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('portfolio-modal');
+  const modalCard = document.getElementById('portfolio-modal-card');
+  const modalImage = modal?.querySelector('[data-modal-image]');
+  const modalTitle = modal?.querySelector('[data-modal-title]');
+  const modalCategory = modal?.querySelector('[data-modal-category]');
+  const modalDescription = modal?.querySelector('[data-modal-description]');
+  const closeButtons = modal?.querySelectorAll('[data-modal-close]');
+
+  const openModal = (project) => {
+    if (!modal || !modalCard) return;
+    if (modalImage) {
+      modalImage.src = project.imageUrl;
+      modalImage.alt = project.title;
+    }
+    if (modalTitle) modalTitle.textContent = project.title;
+    if (modalCategory) modalCategory.textContent = project.category;
+    if (modalDescription) modalDescription.textContent = project.description || '';
+
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    modal.classList.add('opacity-100');
+    modalCard.classList.remove('scale-95', 'opacity-0');
+    modalCard.classList.add('scale-100', 'opacity-100');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    if (!modal || !modalCard) return;
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    modal.classList.remove('opacity-100');
+    modalCard.classList.add('scale-95', 'opacity-0');
+    modalCard.classList.remove('scale-100', 'opacity-100');
+    document.body.style.overflow = 'unset';
+  };
+
+  document.querySelectorAll('[data-project]').forEach((item) => {
+    item.addEventListener('click', () => {
+      const project = JSON.parse(item.getAttribute('data-project') || '{}');
+      openModal(project);
+    });
+  });
+
+  if (modal) {
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+  }
+
+  if (closeButtons) {
+    closeButtons.forEach((button) => button.addEventListener('click', closeModal));
+  }
+
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeModal();
+    }
+  });
+</script>
