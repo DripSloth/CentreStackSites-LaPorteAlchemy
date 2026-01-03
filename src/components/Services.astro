@@ -1,51 +1,50 @@
 ---
 const servicesData = [
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" width="40" height="40" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>`,
-    title: 'Estate Masterplanning',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>`,
+    title: 'Landscape Design',
     description:
-      'A holistic plan that orchestrates circulation, entertaining zones, planting palettes, and sightlines for a cohesive estate experience.',
+      'Comprehensive design solutions that seamlessly integrate architecture, horticulture, and lifestyle. From initial concept to detailed masterplanning.',
   },
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" width="40" height="40" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>`,
-    title: 'Outdoor Architecture',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>`,
+    title: 'Premium Construction',
     description:
-      'Precision-crafted pergolas, pools, terraces, and built forms delivered with premium materials and meticulous detail.',
+      'Expert craftsmanship in outdoor architecture, including pools, terraces, pergolas, and bespoke built elements using premium materials.',
   },
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" width="40" height="40" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-9.998 12.078 12.078 0 01.665-6.479L12 14z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-9.998 12.078 12.078 0 01.665-6.479L12 14z" /></svg>`,
-    title: 'Botanical Styling',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>`,
+    title: 'Garden Maintenance',
     description:
-      'Curated plantings and ongoing stewardship so every garden matures with balance, texture, and year-round vitality.',
+      'Ongoing care and refinement programs ensuring your landscape matures beautifully with expert horticultural management and seasonal attention.',
   },
 ];
 ---
-<section id="services" class="relative py-20 md:py-32 bg-[#f4f1e8] text-[#0f1512] overflow-hidden">
-  <div class="absolute -top-12 right-0 h-64 w-64 rounded-full bg-[#008037]/10 blur-[120px]"></div>
-  <div class="lux-container grid gap-14 lg:grid-cols-[0.9fr_1.1fr] items-start">
-    <div class="space-y-6">
-      <p class="eyebrow text-[#6b6252]">Full-service studio</p>
-      <h2 class="text-4xl md:text-5xl font-semibold text-[#0f1512]">
-        A singular partner for high-end landscape design and build.
-      </h2>
-      <p class="text-lg text-[#3d3a33]">
-        From the first sketch to the final plant selection, we deliver a seamless experience that elevates every
-        outdoor moment.
-      </p>
-      <div class="flex items-center gap-4 pt-4 text-xs uppercase tracking-[0.3em] text-[#6b6252]">
-        <span class="h-px flex-1 bg-[#6b6252]/30"></span>
-        Integrated design, build, and stewardship
-        <span class="h-px flex-1 bg-[#6b6252]/30"></span>
+<section id="services" class="section bg-white">
+  <div class="container">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-16">
+      <div class="reveal">
+        <p class="eyebrow mb-4">Our Services</p>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          Complete Landscape Solutions
+        </h2>
+        <p class="text-lg text-neutral-600 leading-relaxed mb-8">
+          From initial design consultation through to construction and ongoing maintenance, we provide end-to-end landscape services for Brisbane's most prestigious properties.
+        </p>
+        <div class="h-px bg-neutral-200 mb-8"></div>
+        <p class="text-sm uppercase tracking-wider text-neutral-500">
+          Design • Build • Maintain
+        </p>
       </div>
-    </div>
-    <div class="space-y-6">
-      {servicesData.map((service) => (
-        <div class="bg-white/70 border border-[#0f1512]/10 rounded-2xl p-7 shadow-[0_20px_50px_rgba(23,28,24,0.12)] transition-transform duration-300 hover:-translate-y-1">
-          <div class="text-[#008037] mb-4" set:html={service.icon}></div>
-          <h3 class="text-2xl font-semibold mb-3">{service.title}</h3>
-          <p class="text-[#4a443b]">{service.description}</p>
-        </div>
-      ))}
+      <div class="space-y-6">
+        {servicesData.map((service, index) => (
+          <div class="card p-8 reveal" style={`animation-delay: ${(index + 1) * 0.1}s`}>
+            <div class="mb-6" style="color: #008037;" set:html={service.icon}></div>
+            <h3 class="text-2xl font-bold mb-3">{service.title}</h3>
+            <p class="text-neutral-600 leading-relaxed">{service.description}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </section>

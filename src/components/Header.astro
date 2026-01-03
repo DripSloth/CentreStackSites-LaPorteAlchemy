@@ -1,19 +1,20 @@
 ---
+import logoWhite from '../assets/branding/logos/logo-white-on-transparent-landscape.png';
 const navLinks = ['Services', 'Our Work', 'Process', 'About'];
 ---
 <header
   id="site-header"
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
 >
-  <div class="lux-container flex justify-between items-center py-5">
-    <a href="#home" aria-label="La Porte Alchemy Home">
-      <img src="/logo-white.png" alt="La Porte Alchemy Logo" class="h-10 w-auto" />
+  <div class="container flex justify-between items-center py-5 lg:py-6">
+    <a href="#home" aria-label="La Porte Alchemy Home" class="z-10">
+      <img src={logoWhite.src} alt="La Porte Alchemy Logo" class="h-10 lg:h-12 w-auto" />
     </a>
-    <nav class="hidden lg:flex items-center space-x-10 text-xs uppercase tracking-[0.28em]">
+    <nav class="hidden lg:flex items-center gap-8">
       {navLinks.map((link) => (
         <a
           href={`#${link.toLowerCase().replace(' ', '-')}`}
-          class="text-[#e4eadf]/70 hover:text-[#f4f1e8] transition-colors duration-300"
+          class="text-sm font-medium text-white/90 hover:text-white transition-colors duration-300 uppercase tracking-wider"
         >
           {link}
         </a>
@@ -21,43 +22,69 @@ const navLinks = ['Services', 'Our Work', 'Process', 'About'];
     </nav>
     <a
       href="#contact"
-      class="hidden lg:inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-[0.26em] btn-primary transition-all duration-300 hover:translate-y-[-2px]"
+      class="hidden lg:inline-flex items-center btn-primary text-sm"
     >
-      Book a Consultation
+      Get Started
     </a>
-    <button class="lg:hidden text-white" aria-label="Open menu">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+    <button
+      id="mobile-menu-btn"
+      class="lg:hidden text-white p-2 z-10"
+      aria-label="Open menu"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
     </button>
+  </div>
+  
+  <div id="mobile-menu" class="lg:hidden fixed inset-0 bg-neutral-900 z-40 transform translate-x-full transition-transform duration-300">
+    <div class="container pt-24 pb-8">
+      <nav class="flex flex-col gap-6">
+        {navLinks.map((link) => (
+          <a
+            href={`#${link.toLowerCase().replace(' ', '-')}`}
+            class="text-lg font-medium text-white uppercase tracking-wider"
+          >
+            {link}
+          </a>
+        ))}
+        <a href="#contact" class="btn-primary mt-4 w-fit">
+          Get Started
+        </a>
+      </nav>
+    </div>
   </div>
 </header>
 
 <script>
   const header = document.getElementById('site-header');
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
 
   const handleScroll = () => {
     if (!header) return;
-    if (window.scrollY > 10) {
-      header.classList.add(
-        'bg-[#0b120e]/90',
-        'backdrop-blur-xl',
-        'border-b',
-        'border-white/10',
-        'shadow-[0_18px_40px_rgba(0,0,0,0.35)]'
-      );
-      header.classList.remove('bg-transparent');
+    if (window.scrollY > 20) {
+      header.style.backgroundColor = 'rgba(10, 15, 12, 0.95)';
+      header.style.backdropFilter = 'blur(10px)';
+      header.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.2)';
     } else {
-      header.classList.remove(
-        'bg-[#0b120e]/90',
-        'backdrop-blur-xl',
-        'border-b',
-        'border-white/10',
-        'shadow-[0_18px_40px_rgba(0,0,0,0.35)]'
-      );
-      header.classList.add('bg-transparent');
+      header.style.backgroundColor = 'transparent';
+      header.style.backdropFilter = 'none';
+      header.style.boxShadow = 'none';
     }
   };
+
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('translate-x-full');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('translate-x-full');
+      });
+    });
+  }
 
   handleScroll();
   window.addEventListener('scroll', handleScroll);

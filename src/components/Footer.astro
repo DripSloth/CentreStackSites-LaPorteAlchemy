@@ -1,25 +1,44 @@
 ---
+import logoWhite from '../assets/branding/logos/logo-white-on-transparent-landscape.png';
 const currentYear = new Date().getFullYear();
 ---
-<footer class="bg-[#0b120e] text-[#cdd7cb] py-12 border-t border-white/5">
-  <div class="lux-container grid gap-10 md:grid-cols-3 items-center">
-    <div>
-      <a href="#home" aria-label="La Porte Alchemy Home" class="inline-block mb-4">
-        <img src="/logo-white.png" alt="La Porte Alchemy Logo" class="h-10 w-auto" />
-      </a>
-      <p class="text-sm uppercase tracking-[0.28em] text-[#d7cdbb]">Carina Heights landscape atelier</p>
+<footer class="bg-neutral-900 text-white py-12 border-t border-white/10">
+  <div class="container">
+    <div class="grid gap-10 md:grid-cols-3 items-start mb-10">
+      <div>
+        <a href="#home" aria-label="La Porte Alchemy Home" class="inline-block mb-4">
+          <img src={logoWhite.src} alt="La Porte Alchemy Logo" class="h-10 w-auto" />
+        </a>
+        <p class="text-sm uppercase tracking-wider text-white/60">Premium Landscape Design Brisbane</p>
+      </div>
+      <div class="text-sm">
+        <p class="uppercase tracking-wider text-white/60 mb-2">Contact</p>
+        <p class="text-white/80 mb-2">By appointment only</p>
+        <p class="text-white/80">hello@laportealchemy.com</p>
+      </div>
+      <div>
+        <p class="text-sm uppercase tracking-wider text-white/60 mb-4">Follow Us</p>
+        <div class="flex gap-6">
+          <a href="#" class="text-white/60 hover:text-white transition-colors duration-300" aria-label="Instagram">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a href="#" class="text-white/60 hover:text-white transition-colors duration-300" aria-label="Pinterest">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0C5.373 0 0 5.372 0 12s5.373 12 12 12c5.084 0 9.426-3.163 11.174-7.637-.15-.688-.896-3.688.175-5.268.19-.39 1.213-1.644 1.213-1.644s.31-.62.31-1.536c0-1.44-.836-2.516-1.876-2.516-1.443 0-2.09 1.083-2.09 2.38 0 .9.343 1.494.343 1.494s-.117.48-.117 1.19c0 .9.52 1.536 1.17 1.536.137 0 .273-.045.39-.14.384-.27.6-.84.6-1.35 0-1.77-1.08-3.003-2.62-3.003-1.785 0-2.83 1.33-2.83 2.71 0 .99.38 1.65.95 1.65.105 0 .204-.033.297-.1.058-.082.19-.27.22-.42.017-.07.11-.46.11-.59 0-.24-.13-.44-.4-.44-.32 0-.69.1-1.01.28-.6.38-1.25.57-2.01.57-2.64 0-4.33-2.01-4.33-4.65 0-1.93 1.4-3.68 4.03-3.68 2.22 0 3.94 1.65 3.94 3.85 0 2.22-1.4 4.01-3.35 4.01-.66 0-1.28-.34-1.49-.76 0 0-.32 1.22-.4 1.52-.14.54-.53 1.22-.78 1.63 1.19.37 2.45.57 3.78.57 6.627 0 12-5.373 12-12S18.627 0 12 0z"/>
+            </svg>
+          </a>
+          <a href="#" class="text-white/60 hover:text-white transition-colors duration-300" aria-label="Houzz">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22.5C6.201 22.5 1.5 17.799 1.5 12S6.201 1.5 12 1.5 22.5 6.201 22.5 12 17.799 22.5 12 22.5z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
-    <div class="text-sm uppercase tracking-[0.24em] text-[#9da79d]">
-      <p>By appointment only</p>
-      <p class="mt-2">hello@laportealchemy.com</p>
+    <div class="pt-8 border-t border-white/10 text-xs uppercase tracking-wider text-white/50 text-center">
+      &copy; {currentYear} La Porte Alchemy. All Rights Reserved.
     </div>
-    <div class="flex md:justify-end gap-6 text-sm uppercase tracking-[0.24em]">
-      <a href="#" class="hover:text-white transition-colors duration-300">Instagram</a>
-      <a href="#" class="hover:text-white transition-colors duration-300">Pinterest</a>
-      <a href="#" class="hover:text-white transition-colors duration-300">Houzz</a>
-    </div>
-  </div>
-  <div class="lux-container mt-10 text-xs uppercase tracking-[0.28em] text-[#6f776f]">
-    &copy; {currentYear} La Porte Alchemy. All Rights Reserved.
   </div>
 </footer>

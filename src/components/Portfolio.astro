@@ -3,29 +3,29 @@ const projects = [
   {
     id: 1,
     imageUrl: 'https://picsum.photos/seed/riverfront-terrace/1400/1200',
-    title: 'Riverfront Terrace',
+    title: 'Riverfront Estate',
     category: 'Design + Build',
     span: 'lg:col-span-2 lg:row-span-2',
     description:
-      'A layered entertaining terrace with custom stonework, a glowing water feature, and sculpted planting to frame panoramic river views.',
+      'A sophisticated entertaining terrace with custom stonework, integrated water features, and meticulously curated planting framing panoramic Brisbane River views.',
   },
   {
     id: 2,
     imageUrl: 'https://picsum.photos/seed/ascot-courtyard/900/1200',
     title: 'Ascot Courtyard',
-    category: 'Estate Masterplanning',
+    category: 'Residential Design',
     span: 'lg:row-span-2',
     description:
-      'An internal courtyard reimagined with a spa, feature tree, and layered lighting to create a private sanctuary in the city.',
+      'An intimate courtyard sanctuary featuring a spa, statement tree, and layered lighting creating a private urban retreat.',
   },
   {
     id: 3,
     imageUrl: 'https://picsum.photos/seed/botanical-entry/900/700',
     title: 'Botanical Entry',
-    category: 'Botanical Styling',
+    category: 'Garden Design',
     span: '',
     description:
-      'A refined arrival experience with curated planting, bronze accents, and a sculptural water blade to anchor the entry sequence.',
+      'An elegant arrival sequence with curated planting, premium materials, and a sculptural water feature anchoring the entry experience.',
   },
   {
     id: 4,
@@ -34,57 +34,56 @@ const projects = [
     category: 'Outdoor Architecture',
     span: 'lg:col-span-2',
     description:
-      'A resort-inspired pavilion with outdoor kitchen, cantilevered shade, and immersive greenery for effortless hosting.',
+      'A resort-inspired pavilion with integrated outdoor kitchen, cantilevered shade structures, and immersive landscape design for seamless entertaining.',
   },
   {
     id: 5,
     imageUrl: 'https://picsum.photos/seed/hillside-lawn/800/700',
-    title: 'Hillside Lawn',
-    category: 'Construction',
+    title: 'Hillside Retreat',
+    category: 'Landscape Construction',
     span: '',
     description:
-      'Terraced lawns, stone steps, and fine-grain planting that reshape a steep site into a calm, usable retreat.',
+      'Terraced lawns, natural stone steps, and refined planting transforming a challenging slope into a serene, functional outdoor space.',
   },
 ];
 ---
-<section id="our-work" class="relative py-20 md:py-32 bg-[#0d1310] text-[#f4f1e8] overflow-hidden">
-  <div class="absolute -top-24 left-10 h-64 w-64 rounded-full bg-[#008037]/20 blur-[120px]"></div>
-  <div class="lux-container">
-    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
-      <div class="max-w-2xl">
-        <p class="eyebrow text-[#d7cdbb]">Selected work</p>
-        <h2 class="text-4xl md:text-5xl font-semibold mt-4">Landscapes curated for Carina Heights estates.</h2>
-        <p class="text-lg text-[#cdd7cb] mt-4">
-          A refined portfolio spanning resort pools, layered garden rooms, and architectural outdoor living spaces.
+<section id="our-work" class="section bg-neutral-900 text-white">
+  <div class="container">
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
+      <div class="max-w-2xl reveal">
+        <p class="eyebrow mb-4 text-white/70">Our Portfolio</p>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
+          Exceptional Brisbane Landscapes
+        </h2>
+        <p class="text-lg text-white/80 leading-relaxed">
+          A curated selection of premium landscape projects showcasing our commitment to design excellence and superior craftsmanship.
         </p>
       </div>
-      <a
-        href="#contact"
-        class="btn-secondary inline-flex items-center justify-center px-7 py-3 rounded-full text-xs font-semibold uppercase tracking-[0.26em] transition-transform duration-300 hover:translate-y-[-2px]"
-      >
-        Start a project
+      <a href="#contact" class="btn-primary reveal delay-1">
+        Start Your Project
       </a>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[220px] md:auto-rows-[260px] gap-6">
-      {projects.map((project) => (
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[300px] md:auto-rows-[400px]">
+      {projects.map((project, index) => (
         <button
           type="button"
-          class={`relative rounded-[28px] overflow-hidden group ${project.span} cursor-pointer text-left border border-white/10 shadow-[0_25px_60px_rgba(5,10,7,0.45)]`}
+          class={`relative overflow-hidden group cursor-pointer rounded-lg ${project.span} reveal`}
+          style={`animation-delay: ${(index + 1) * 0.1}s`}
           data-project={JSON.stringify(project)}
         >
           <img
             src={project.imageUrl}
             alt={project.title}
-            class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-90"></div>
-          <div class="absolute inset-0 p-6 flex flex-col justify-between">
-            <span class="text-[0.65rem] uppercase tracking-[0.3em] text-[#d7cdbb]">
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/95 via-neutral-900/50 to-transparent"></div>
+          <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-between">
+            <span class="text-xs uppercase tracking-wider text-white/70 mb-auto">
               {project.category}
             </span>
-            <div class="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
-              <h3 class="text-2xl font-semibold text-white">{project.title}</h3>
-              <p class="text-sm text-[#cdd7cb] mt-2">View project details</p>
+            <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">{project.title}</h3>
+              <p class="text-sm text-white/80">View project →</p>
             </div>
           </div>
         </button>
@@ -102,30 +101,30 @@ const projects = [
 >
   <div
     id="portfolio-modal-card"
-    class="relative bg-[#0f1512] rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto flex flex-col md:flex-row transition-all duration-300 scale-95 opacity-0 border border-white/10"
+    class="relative bg-neutral-900 rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto flex flex-col md:flex-row transition-all duration-300 scale-95 opacity-0 border border-white/10"
   >
     <button
       type="button"
       data-modal-close
-      class="absolute top-4 right-4 text-[#9da79d] hover:text-white transition-colors z-10"
+      class="absolute top-4 right-4 text-white/60 hover:text-white transition-colors z-10 p-2"
       aria-label="Close project details"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
-    <div class="md:w-3/5 flex-shrink-0 bg-[#0d1310]">
+    <div class="md:w-3/5 flex-shrink-0 bg-neutral-800">
       <img
         data-modal-image
         src=""
         alt=""
-        class="w-full h-full object-cover rounded-t-2xl md:rounded-l-2xl md:rounded-t-none"
+        class="w-full h-full object-cover rounded-t-lg md:rounded-l-lg md:rounded-t-none"
       />
     </div>
     <div class="p-8 flex flex-col justify-center">
-      <h2 id="project-title" data-modal-title class="text-3xl font-semibold text-white mb-2"></h2>
-      <p data-modal-category class="text-[#008037] font-semibold mb-4 uppercase tracking-[0.2em] text-xs"></p>
-      <p data-modal-description class="text-[#cdd7cb]"></p>
+      <h2 id="project-title" data-modal-title class="text-3xl font-bold text-white mb-3"></h2>
+      <p data-modal-category class="font-semibold mb-4 uppercase tracking-wider text-xs" style="color: #008037;"></p>
+      <p data-modal-description class="text-white/80 leading-relaxed"></p>
     </div>
   </div>
 </div>
